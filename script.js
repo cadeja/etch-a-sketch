@@ -26,10 +26,10 @@ for (let i = 1; i <= gridHeight; i++){
 // squares interact with mouseover event listener
 // checks if background-color is red and turns it white, and vice versa
 function changeColor() {
-    if (this.style.backgroundColor == 'red'){
+    if (this.style.backgroundColor == 'black'){
         this.style.backgroundColor = 'white';
     } else {
-        this.style.backgroundColor = 'red';
+        this.style.backgroundColor = 'black';
     }
 }
 
