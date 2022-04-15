@@ -1,0 +1,11 @@
+* {
+    border: 1px solid red;
+    margin: 1px;
+}
+
+.rows {
+    display: flex;
+    justify-content: space-between;
+    width:30px;
+    height:30px;
+}
