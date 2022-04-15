@@ -1,5 +1,5 @@
 * {
-    /*border: 1px solid red;*/
+    border: 1px solid red;
 }
 
 #grid {
@@ -8,7 +8,19 @@
     align-items: center;
 }
 
+.application {
+    display: flex;
+    justify-content: center;
+}
 
+.input-width .input-height {
+    display: flex;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+}
 
 .rows {
     display: flex;

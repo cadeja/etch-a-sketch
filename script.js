@@ -1,12 +1,20 @@
 
-const grid = document.querySelector('#grid');
 
-for (i = 1; i <= 32; i++){
+
+
+
+//grid variables
+const grid = document.querySelector('#grid');
+let gridWidth = 16;
+let gridHeight = 16;
+
+//creating grid from variables gridWidth and gridHeight
+for (let i = 1; i <= gridHeight; i++){
     const div = document.createElement('div');
     div.setAttribute('id',`row${i}`);
     div.setAttribute('class','rows');
     grid.appendChild(div);
-    for (j = 1; j <= 32; j++){
+    for (let j = 1; j <= gridWidth; j++){
         const row = document.querySelector(`#row${i}`);
         const div = document.createElement('div');
         div.setAttribute('class',`column${j} items`);
@@ -15,6 +23,8 @@ for (i = 1; i <= 32; i++){
     }
 }
 
+// squares interact with mouseover event listener
+// checks if background-color is red and turns it white, and vice versa
 function changeColor() {
     if (this.style.backgroundColor == 'red'){
         this.style.backgroundColor = 'white';
@@ -23,7 +33,18 @@ function changeColor() {
     }
 }
 
+// mouse hover color change event for grid squares
 const squares = document.querySelectorAll('.items');
-for (i = 0; i < squares.length; i++){
-    squares[i].addEventListener('mouseover', changeColor);
+for (let i = 0; i < squares.length; i++){
+    squares[i].addEventListener('mouseover', changeColor);  
 }
+
+
+// clear button event listener
+// sets all squares background-color to white
+const clear = document.querySelector('#clear');
+clear.addEventListener('click',() => {
+    for (let i = 0; i < squares.length; i++){
+        squares[i].style.backgroundColor = 'white';
+    }
+});
