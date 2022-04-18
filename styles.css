@@ -19,8 +19,9 @@
     justify-content: center;
 }
 
-.input-width .input-height {
-    display: flex;
+.input-setting,
+.button-setting {
+    margin: 2px;
 }
 
 .settings {

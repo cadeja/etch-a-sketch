@@ -48,3 +48,11 @@ clear.addEventListener('click',() => {
         squares[i].style.backgroundColor = 'white';
     }
 });
+
+
+// new grid button event listener
+// prompts user to input tile size, max 100
+const newGrid = document.querySelector('#new-grid');
+newGrid.addEventListener('click', () => {
+    window.prompt("Input grid size");
+});
