@@ -3,16 +3,16 @@
 
 //starting gridSize
 let gridSize = 32;
-let gridMarginBottom = '50px'
+let gridMarginBottom = '50px';
 
-
+let gridBackgroundColor = '#586e75';
 
 
 
 
 
 // squares interact with mouseover event listener
-// checks if background-color is red and turns it white, and vice versa
+// changes background color to random color
 function changeColor() {
     let randomColor = Math.floor(Math.random() * 8);
     switch (randomColor) {
@@ -41,6 +41,12 @@ function changeColor() {
             this.style.backgroundColor = '#859900';
             break;
     }
+    let itemBrightness = this.style.filter.match(/\d+/);
+    console.log(itemBrightness);
+    if (itemBrightness != '0'){
+        this.style.filter = `brightness(${itemBrightness - 10}%)`;
+        console.log(this.style.filter);
+    };
 }
 
 //creating grid from variables gridWidth and gridHeight
@@ -63,7 +69,7 @@ function createGrid(gridSize){
             const div = document.createElement('div');
             div.setAttribute('class',`items`);
             div.setAttribute('id',`item${i}x${j}`);
-            div.setAttribute('style', `width: ${itemSize}%; padding-bottom: ${itemSize}%;`);
+            div.setAttribute('style', `width: ${itemSize}%; padding-bottom: ${itemSize}%; filter: brightness(100%);`);
             row.appendChild(div);
             if (i == gridSize){
                 div.style.marginBottom = gridMarginBottom;
@@ -87,7 +93,7 @@ function createGrid(gridSize){
     const clear = document.querySelector('#clear');
     clear.addEventListener('click',() => {
         for (let i = 0; i < squares.length; i++){
-            squares[i].style.backgroundColor = 'white';
+            squares[i].style.backgroundColor = gridBackgroundColor;
         }
     });
 }
