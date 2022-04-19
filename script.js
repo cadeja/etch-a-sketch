@@ -1,16 +1,45 @@
 
 
 
+//starting gridSize
+let gridSize = 32;
+let gridMarginBottom = '50px'
 
-let gridSize = 16;
+
+
+
+
+
 
 // squares interact with mouseover event listener
 // checks if background-color is red and turns it white, and vice versa
 function changeColor() {
-    if (this.style.backgroundColor == 'black'){
-        this.style.backgroundColor = 'white';
-    } else {
-        this.style.backgroundColor = 'black';
+    let randomColor = Math.floor(Math.random() * 8);
+    switch (randomColor) {
+        case 0:
+            this.style.backgroundColor = '#b58900';
+            break;
+        case 1:
+            this.style.backgroundColor = '#cb4b16';
+            break;
+        case 2:
+            this.style.backgroundColor = '#dc322f';
+            break;
+        case 3:
+            this.style.backgroundColor = '#d33682';
+            break;
+        case 4:
+            this.style.backgroundColor = '#6c71c4';
+            break;
+        case 5:
+            this.style.backgroundColor = '#268bd2';
+            break;
+        case 6:
+            this.style.backgroundColor = '#2aa198';
+            break;
+        case 7:
+            this.style.backgroundColor = '#859900';
+            break;
     }
 }
 
@@ -19,6 +48,11 @@ function createGrid(gridSize){
 
     const grid = document.querySelector('#grid');
 
+
+    // find right percent for items class width and padding-bottom properties
+    let itemSize = 100 / gridSize;
+
+    // creates item divs
     for (let i = 1; i <= gridSize; i++){
         const div = document.createElement('div');
         div.setAttribute('id',`row${i}`);
@@ -27,11 +61,20 @@ function createGrid(gridSize){
         for (let j = 1; j <= gridSize; j++){
             const row = document.querySelector(`#row${i}`);
             const div = document.createElement('div');
-            div.setAttribute('class',`column${j} items`);
+            div.setAttribute('class',`items`);
             div.setAttribute('id',`item${i}x${j}`);
+            div.setAttribute('style', `width: ${itemSize}%; padding-bottom: ${itemSize}%;`);
             row.appendChild(div);
+            if (i == gridSize){
+                div.style.marginBottom = gridMarginBottom;
+            }
         }
     }
+
+    
+
+
+
     // mouse hover color change event for grid squares
     const squares = document.querySelectorAll('.items');
 
