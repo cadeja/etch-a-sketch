@@ -94,6 +94,7 @@ function createGrid(gridSize){
     clear.addEventListener('click',() => {
         for (let i = 0; i < squares.length; i++){
             squares[i].style.backgroundColor = gridBackgroundColor;
+            squares[i].style.filter = 'brightness(100%)';
         }
     });
 }
